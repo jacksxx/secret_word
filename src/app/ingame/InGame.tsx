@@ -34,9 +34,9 @@ const InGame: React.FC<IonGame> = ({
 
   const onSubmit: SubmitHandler<Letr> = (data, event) => {
     event?.preventDefault();
+    setFocus("letter");
     verifyLetter(data.letter);
     reset();
-    setFocus("letter");
   };
 
   return (
