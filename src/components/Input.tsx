@@ -1,9 +1,8 @@
-import { type InputHTMLAttributes, forwardRef } from "react";
+import type React from 'react';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
-
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ type = "text", ...props }, ref) => {
-    return <input type={type} ref={ref} {...props} />;
-  }
-);
+export const Input = ({
+  type = "text",
+  ...props
+}: React.ComponentProps<"input">) => {
+  return <input type={type} {...props} />;
+};

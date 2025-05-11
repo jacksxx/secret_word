@@ -1,12 +1,10 @@
-import type { ButtonHTMLAttributes } from "react";
-
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+import type React from 'react';
 
 export const Button = ({
   type = "submit",
   className,
   ...props
-}: ButtonProps) => {
+}: React.ComponentProps<"button">) => {
   return (
     <button
       type={type}
@@ -15,5 +13,3 @@ export const Button = ({
     />
   );
 };
-
-//text-center bg-blue-500 text-white border-2 border-yellow-300 rounded-full py-3 w-[200px] hover:bg-blue-400 hover:border-yellow-500
