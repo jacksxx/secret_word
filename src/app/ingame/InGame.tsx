@@ -34,7 +34,6 @@ const InGame: React.FC<IonGame> = ({
 
   const onSubmit: SubmitHandler<Letr> = (data, event) => {
     event?.preventDefault();
-    setFocus("letter");
     verifyLetter(data.letter);
     reset();
     setFocus("letter");
@@ -53,10 +52,10 @@ const InGame: React.FC<IonGame> = ({
       <div className="container border-8 border-solid border-yellow-500 py-5 text-[40px] flex justify-center gap-1 max-w-4xl px-4">
         {letters.map((letter, index) => {
           const key = `${pickedWord}-${letter}-${index}`;
-          return guessedLetters.includes(letter) ? (
-            <BoxLetters key={key}>{letter}</BoxLetters>
-          ) : (
-            <BoxLetters key={key}>{""}</BoxLetters>
+          return (
+            <BoxLetters key={key}>
+              {guessedLetters.includes(letter) ? letter : ""}
+            </BoxLetters>
           );
         })}
       </div>
@@ -79,7 +78,7 @@ const InGame: React.FC<IonGame> = ({
             {...register("letter")}
             autoFocus={true}
           />
-          <Button>Jogar</Button>
+          <Button type="submit">Jogar</Button>
         </form>
         <div className="py-2 text-[20px]">
           Letras já utilizadas:
